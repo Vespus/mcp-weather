@@ -1,0 +1,38 @@
+openapi: 3.0.0
+info:
+  title: OpenWeather Tool API
+  version: "1.0"
+  description: API zur Abfrage des aktuellen Wetters für eine Stadt
+
+servers:
+  - url: http://localhost:8000
+
+paths:
+  /weather:
+    get:
+      summary: Wetter für eine Stadt
+      operationId: getWeather
+      parameters:
+        - name: city
+          in: query
+          required: true
+          description: Name der Stadt (z. B. München)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Erfolgreiche Antwort mit Wetterdaten
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  city:
+                    type: string
+                  temperature:
+                    type: number
+                  description:
+                    type: string
+                  wind_speed:
+                    type: number
+
