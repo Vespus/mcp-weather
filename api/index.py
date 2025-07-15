@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Query
 from fastapi.responses import FileResponse
 import requests, os
+from pathlib import Path
 from dotenv import load_dotenv
 
 # Hole .env aus dem übergeordneten Verzeichnis
